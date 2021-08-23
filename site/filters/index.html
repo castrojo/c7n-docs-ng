@@ -1,0 +1,2970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Filters - Cloud Custodian Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generic-filters-filters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cloud Custodian Documentation" class="md-header__button md-logo" aria-label="Cloud Custodian Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Custodian Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Filters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloud Custodian Documentation" class="md-nav__button md-logo" aria-label="Cloud Custodian Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cloud Custodian Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        Actions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Filters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Filters
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-filter" class="md-nav__link">
+    Value Filter
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Aws
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Aws" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Aws
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/contribute.rst/" class="md-nav__link">
+        Contribute.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/gettingstarted/" class="md-nav__link">
+        Gettingstarted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/gettingstarted.rst/" class="md-nav__link">
+        Gettingstarted.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/lambda/" class="md-nav__link">
+        Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/lambda.rst/" class="md-nav__link">
+        Lambda.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/usage.rst/" class="md-nav__link">
+        Usage.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" >
+      
+      <label class="md-nav__link" for="__nav_6_9">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_9">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/accountinvalidiplogin/" class="md-nav__link">
+        Accountinvalidiplogin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/accountrootlogin/" class="md-nav__link">
+        Accountrootlogin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/accountservicelimit/" class="md-nav__link">
+        Accountservicelimit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/amicomp/" class="md-nav__link">
+        Amicomp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/asginvalidconfig/" class="md-nav__link">
+        Asginvalidconfig
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/asgnotused/" class="md-nav__link">
+        Asgnotused
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/asgoffhours/" class="md-nav__link">
+        Asgoffhours
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/blocknonstandardregionresources/" class="md-nav__link">
+        Blocknonstandardregionresources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/dmsenforcessl/" class="md-nav__link">
+        Dmsenforcessl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ebsgarbagecollect/" class="md-nav__link">
+        Ebsgarbagecollect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ebssnapshots/" class="md-nav__link">
+        Ebssnapshots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ebsunencrypted/" class="md-nav__link">
+        Ebsunencrypted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ec2-auto-tag-user/" class="md-nav__link">
+        Ec2 auto tag user
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ec2offhours/" class="md-nav__link">
+        Ec2offhours
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ec2oldinstances/" class="md-nav__link">
+        Ec2oldinstances
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ec2poweronstoppedforpatching/" class="md-nav__link">
+        Ec2poweronstoppedforpatching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/ec2unpatchedworkflow/" class="md-nav__link">
+        Ec2unpatchedworkflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/eipgarbagecollect/" class="md-nav__link">
+        Eipgarbagecollect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/elbdeleteinetfacing/" class="md-nav__link">
+        Elbdeleteinetfacing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/elbgarbagecollection/" class="md-nav__link">
+        Elbgarbagecollection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/elbsslblacklist/" class="md-nav__link">
+        Elbsslblacklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/elbsslwhitelist/" class="md-nav__link">
+        Elbsslwhitelist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/iamsetrolepolicy/" class="md-nav__link">
+        Iamsetrolepolicy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/lambdaerrorsnotify/" class="md-nav__link">
+        Lambdaerrorsnotify
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/offhours/" class="md-nav__link">
+        Offhours
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/rdsdeleteunused/" class="md-nav__link">
+        Rdsdeleteunused
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/rdspublicunencrypted/" class="md-nav__link">
+        Rdspublicunencrypted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/s3configurenewbucket/" class="md-nav__link">
+        S3configurenewbucket
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/s3denypublicobjectacls/" class="md-nav__link">
+        S3denypublicobjectacls
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/s3encryption/" class="md-nav__link">
+        S3encryption
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/s3globalgrants/" class="md-nav__link">
+        S3globalgrants
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/sagemakernotebookdeletepublicorunencrypted/" class="md-nav__link">
+        Sagemakernotebookdeletepublicorunencrypted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/securitygroupsaddpermission/" class="md-nav__link">
+        Securitygroupsaddpermission
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/securitygroupsdetectremediate/" class="md-nav__link">
+        Securitygroupsdetectremediate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/tagcompliance/" class="md-nav__link">
+        Tagcompliance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/vpcflowlog/" class="md-nav__link">
+        Vpcflowlog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/examples/vpcpeeringcrossaccount/" class="md-nav__link">
+        Vpcpeeringcrossaccount
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_10" type="checkbox" id="__nav_6_10" >
+      
+      <label class="md-nav__link" for="__nav_6_10">
+        Topics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Topics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_10">
+          <span class="md-nav__icon md-icon"></span>
+          Topics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/topics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/topics/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/topics/securityhub/" class="md-nav__link">
+        Securityhub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/topics/ssm/" class="md-nav__link">
+        Ssm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/topics/xray/" class="md-nav__link">
+        Xray
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Azure
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Azure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/gettingstarted/" class="md-nav__link">
+        Gettingstarted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/gettingstarted.rst/" class="md-nav__link">
+        Gettingstarted.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      <label class="md-nav__link" for="__nav_7_3">
+        Advanced
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/advanced/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/advanced/azurepolicy/" class="md-nav__link">
+        Azurepolicy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/advanced/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/advanced/multiplesubs/" class="md-nav__link">
+        Multiplesubs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      <label class="md-nav__link" for="__nav_7_4">
+        Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/acitutorial/" class="md-nav__link">
+        Acitutorial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/containerhosting/" class="md-nav__link">
+        Containerhosting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/functionshosting/" class="md-nav__link">
+        Functionshosting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/helmtutorial/" class="md-nav__link">
+        Helmtutorial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/configuration/monitoring/" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      <label class="md-nav__link" for="__nav_7_5">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/appservicecors-compute/" class="md-nav__link">
+        Appservicecors compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/appserviceplansresize-compute/" class="md-nav__link">
+        Appserviceplansresize compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/cosmosdb-collection-on-off-hours-databases/" class="md-nav__link">
+        Cosmosdb collection on off hours databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/emailnotify-notifications/" class="md-nav__link">
+        Emailnotify notifications
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/firewall-cosmosaction-networking/" class="md-nav__link">
+        Firewall cosmosaction networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/firewall-rulesfiltering-networking/" class="md-nav__link">
+        Firewall rulesfiltering networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/loadbalancerfilterbyfrotendip-networking/" class="md-nav__link">
+        Loadbalancerfilterbyfrotendip networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/metrics-general/" class="md-nav__link">
+        Metrics general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/networksecuritygroups-networking/" class="md-nav__link">
+        Networksecuritygroups networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/resourcegroupsdelayedoperation-general/" class="md-nav__link">
+        Resourcegroupsdelayedoperation general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/resourcegroupsorphanresources-general-compute-networking/" class="md-nav__link">
+        Resourcegroupsorphanresources general compute networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/resourcegroupsremoveempty-general/" class="md-nav__link">
+        Resourcegroupsremoveempty general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/routetablewithsubnet-networking/" class="md-nav__link">
+        Routetablewithsubnet networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/sqldatabasebackupretention-databases/" class="md-nav__link">
+        Sqldatabasebackupretention databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/sqldatabaseupdateretentionpolicies-databases/" class="md-nav__link">
+        Sqldatabaseupdateretentionpolicies databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/sqldatabasewithpremiumsku-databases/" class="md-nav__link">
+        Sqldatabasewithpremiumsku databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/storageaddfirewallrulestostorage-databases-networking/" class="md-nav__link">
+        Storageaddfirewallrulestostorage databases networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/storageblockpublicaccess-networking-databases/" class="md-nav__link">
+        Storageblockpublicaccess networking databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/storagecontainerevent-databases/" class="md-nav__link">
+        Storagecontainerevent databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/tagadd-general-compute/" class="md-nav__link">
+        Tagadd general compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/tagautotagusers-general-identity/" class="md-nav__link">
+        Tagautotagusers general identity
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/tagremove-general-compute/" class="md-nav__link">
+        Tagremove general compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/tagtrim-general-compute/" class="md-nav__link">
+        Tagtrim general compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/teamsnewresourcegroup-general-notifications/" class="md-nav__link">
+        Teamsnewresourcegroup general notifications
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/virtualmachinesstoppedvm-compute/" class="md-nav__link">
+        Virtualmachinesstoppedvm compute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/virtualmachineswithpublicip-compute-networking/" class="md-nav__link">
+        Virtualmachineswithpublicip compute networking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5_28" type="checkbox" id="__nav_7_5_28" >
+      
+      <label class="md-nav__link" for="__nav_7_5_28">
+        Logicappnotifications
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logicappnotifications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_5_28">
+          <span class="md-nav__icon md-icon"></span>
+          Logicappnotifications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/examples/logicappnotifications/logicappnotification/" class="md-nav__link">
+        Logicappnotification
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Developer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/documentation/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/documentation.rst/" class="md-nav__link">
+        Documentation.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/index.rst/" class="md-nav__link">
+        Index.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/installing/" class="md-nav__link">
+        Installing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/installing.rst/" class="md-nav__link">
+        Installing.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/packaging/" class="md-nav__link">
+        Packaging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/packaging.rst/" class="md-nav__link">
+        Packaging.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/tests.rst/" class="md-nav__link">
+        Tests.rst
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Gcp
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Gcp" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Gcp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/contribute.rst/" class="md-nav__link">
+        Contribute.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/gettingstarted/" class="md-nav__link">
+        Gettingstarted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/gettingstarted.rst/" class="md-nav__link">
+        Gettingstarted.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_5" type="checkbox" id="__nav_9_5" >
+      
+      <label class="md-nav__link" for="__nav_9_5">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/appengine-certificates/" class="md-nav__link">
+        Appengine certificates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/appengine-domain/" class="md-nav__link">
+        Appengine domain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/appengine-firewall-ingress-rule/" class="md-nav__link">
+        Appengine firewall ingress rule
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/dataflow-job/" class="md-nav__link">
+        Dataflow job
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/dm-deployments/" class="md-nav__link">
+        Dm deployments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/dns-managed-zone/" class="md-nav__link">
+        Dns managed zone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/dns-policy/" class="md-nav__link">
+        Dns policy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/gce-autoscaler/" class="md-nav__link">
+        Gce autoscaler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/gce-instance-template/" class="md-nav__link">
+        Gce instance template
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/kms-cryptokey/" class="md-nav__link">
+        Kms cryptokey
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/loadbalancer-delete-backend-buckets/" class="md-nav__link">
+        Loadbalancer delete backend buckets
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/loadbalancer-network-tiers/" class="md-nav__link">
+        Loadbalancer network tiers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/loadbalancer-ssl-policy-delete-old-versions/" class="md-nav__link">
+        Loadbalancer ssl policy delete old versions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/pubsub-snapshots/" class="md-nav__link">
+        Pubsub snapshots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/pubsub-subscriptions/" class="md-nav__link">
+        Pubsub subscriptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/spanner-drop-databases/" class="md-nav__link">
+        Spanner drop databases
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/spanner-reduce-instances-count/" class="md-nav__link">
+        Spanner reduce instances count
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/spanner-set-iam-policy/" class="md-nav__link">
+        Spanner set iam policy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/sql-backupruns/" class="md-nav__link">
+        Sql backupruns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/sql-instance/" class="md-nav__link">
+        Sql instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/sql-sslcerts/" class="md-nav__link">
+        Sql sslcerts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/examples/sql-users/" class="md-nav__link">
+        Sql users
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      <label class="md-nav__link" for="__nav_9_6">
+        Policy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Policy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Policy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/policy/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/policy/genericgcpactions/" class="md-nav__link">
+        Genericgcpactions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6_3" type="checkbox" id="__nav_9_6_3" >
+      
+      <label class="md-nav__link" for="__nav_9_6_3">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp/policy/resources/loadbalancer/" class="md-nav__link">
+        Loadbalancer
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Quickstart
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Quickstart" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Quickstart
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/advanced/" class="md-nav__link">
+        Advanced
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/advanced.rst/" class="md-nav__link">
+        Advanced.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/index.rst/" class="md-nav__link">
+        Index.rst
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/policyStructure/" class="md-nav__link">
+        policyStructure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/policyStructure.rst/" class="md-nav__link">
+        policyStructure.rst
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-filter" class="md-nav__link">
+    Value Filter
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="generic-filters-filters">Generic Filters {#filters}</h1>
+<p>The following filters can be applied to all policies for all resources.
+See the provider specific resource reference for additional information.</p>
+<h2 id="value-filter">Value Filter</h2>
+<p>Cloud Custodian provides for a flexible query language on any resource
+by allowing for rich queries on JSON objects via JMESPath, and allows
+for mixing and combining those with boolean conditional operators that
+are nest-able. (Tutorial here on
+<a href="http://jmespath.org/tutorial.html">JMESPath</a> syntax)</p>
+<p>The base value filter enables the use of jmespath with data returned
+from a describe call.</p>
+<pre><code class="language-yaml">filters:
+     - type: value
+       key: &quot;State[0]&quot;    ─▶ The value from the describe call
+       value: &quot;running&quot;   ─▶ Value that is being filtered against
+</code></pre>
+<p>There are several ways to get a list of possible keys for each resource.</p>
+<ul>
+<li>
+<p>Via Custodian CLI</p>
+<blockquote>
+<p>Create a new custodian yaml file with just the name and resource
+fields. Then run <code>custodian run -s OUTPUT_DIR</code>. The valid key
+fields can be found in the output directory in resources.json</p>
+<p><code>{.yaml}
+policies:
+  - name: my-first-policy
+    resource: aws.ec2</code></p>
+</blockquote>
+</li>
+<li>
+<p>Via Cloud Providers CLI</p>
+<blockquote>
+<p>Use the relevant cloud provider cli to run the describe call to
+view all available keys. For example using aws cli run
+<code>aws ec2 describe-instances</code> or with azure <code>az vm list</code>.</p>
+<p>Note: You do not need to include the outermost json field in most
+cases since custodian removes this field from the results.</p>
+</blockquote>
+</li>
+<li>
+<p>Via Cloud Provider Documentation</p>
+<blockquote>
+<p>Go to the relevant cloud provider sdk documentation and search for
+the describe api call for the resource you\'re interested in. The
+available fields will be listed under the results of that api
+call.</p>
+</blockquote>
+</li>
+<li>
+<p>Comparison operators:</p>
+<p>:   The generic value filter allows for comparison operators to be
+    used</p>
+<pre><code>-   `equal` or `eq`
+-   `not-equal` or `ne`
+-   `greater-than` or `gt`
+-   `gte` or `ge`
+-   `less-than` or `lt`
+-   `lte` or `le`
+</code></pre>
+<p><code>{.yaml}
+filters:
+   - type: value
+     key: CpuOptions.CoreCount      ─▶ The value from the describe call
+     value: 36                      ─▶ Value that is being compared
+     op: greater-than               ─▶ Comparison Operator</code></p>
+</li>
+<li>
+<p>Other operators:</p>
+<p>:   -   <code>absent</code>
+    -   <code>present</code>
+    -   <code>not-null</code>
+    -   <code>empty</code>
+    -   <code>contains</code></p>
+<p><code>{.yaml}
+filters:
+   - type: value
+     key: CpuOptions.CoreCount      ─▶ The value from the describe call
+     value: present                 ─▶ Checks if key is present</code></p>
+</li>
+<li>
+<p>Logical Operators:</p>
+<p>:   -   <code>or</code> or <code>Or</code>
+    -   <code>and</code> or <code>And</code>
+    -   <code>not</code></p>
+<p><code>{.yaml}
+filters:
+   - or:                              ─▶ Logical Operator
+     - type: value
+       key: CpuOptions.CoreCount      ─▶ The value from the describe call
+       value: 36                      ─▶ Value that is being compared
+     - type: value
+       key: CpuOptions.CoreCount      ─▶ The value from the describe call
+       value: 42                      ─▶ Value that is being compared</code></p>
+</li>
+<li>
+<p>List Operators:</p>
+<p>:   There is a collection of operators that can be used with user
+    supplied lists. The operators are evaluated as <code>value from key</code>
+    in (the operator) <code>given value</code>. If you would like it evaluated
+    in the opposite way <code>given value</code> in (the operator)
+    <code>value from key</code> then you can include the <code>swap</code> transformation
+    or use the <code>contains</code> operator.</p>
+<pre><code>-   `in`
+-   `not-in` or `ni`
+-   `intersect` - Provides comparison between 2 lists
+</code></pre>
+<p><code>{.yaml}
+filters:
+   - type: value
+     key: ImageId                   ─▶ The value from the describe call
+     op: in                         ─▶ List operator
+     value: [ID-123, ID-321]        ─▶ List of Values to be compared against</code></p>
+<p><code>{.yaml}
+filters:
+   - type: value
+     key: ImageId.List              ─▶ The value from the describe call
+     op: in                         ─▶ List operator
+     value: ID-321                  ─▶ Values to be compared against
+     value_type: swap               ─▶ Switches list comparison order</code></p>
+</li>
+<li>
+<p>Special operators:</p>
+<p>:   -   <code>glob</code> - Provides Glob matching support
+    -   <code>regex</code> - Provides Regex matching support but ignores
+        case (1)
+    -   <code>regex-case</code> - Provides case sensitive Regex matching
+        support (1)</p>
+<p>``` {.yaml}
+filters:
+   - type: value
+     key: FunctionName                ─▶ The value from the describe call, or resources.json
+     op: regex                        ─▶ Special operator
+     value: '(custodian|c7n)<em>\w+'     ─▶ Regex string: match all values beginning with custodian</em> or c7n_</p>
+<ul>
+<li>
+<p>type: value
+     key: name                        ─▶ The value from the describe call, or resources.json
+     op: regex                        ─▶ Special operator
+     value: '^.<em>c7n.</em>$'               ─▶ Regex string: match all values containing c7n</p>
+</li>
+<li>
+<p>type: value
+     key: name                        ─▶ The value from the describe call, or resources.json
+     op: regex                        ─▶ Special operator
+     value: '^((?!c7n).)*$'           ─▶ Regex string: match all values not containing c7n
+```</p>
+</li>
+<li>
+<p>These operators are implemented using <code>re.match</code>. If a filter
+    isn\'t working as expected take a look at the
+    [re]{.title-ref}__ documentation.</p>
+</li>
+</ul>
+<p>__ <a href="https://docs.python.org/3/library/re.html#search-vs-match">https://docs.python.org/3/library/re.html#search-vs-match</a></p>
+</li>
+<li>
+<p>Transformations: Transformations on the value can be done using the
+    <code>value_type</code> keyword. The following value types are supported:</p>
+<ul>
+<li><code>age</code> - convert to a datetime (for past date comparisons)</li>
+<li><code>cidr</code> - parse an ipaddress</li>
+<li><code>cidr_size</code> - the length of the network prefix</li>
+<li><code>expiration</code> - convert to a datetime (for future date
+    comparisons)</li>
+<li><code>integer</code> - convert the value to an integer</li>
+<li><code>normalize</code> - convert the value to lowercase</li>
+<li><code>resource_count</code> - compare against the number of matched
+    resources</li>
+<li><code>size</code> - the length of an element</li>
+<li><code>swap</code> - swap the value and the evaluated key</li>
+<li><code>date</code> - parse the filter\'s value as a date.</li>
+</ul>
+<p>Note that the [age]{.title-ref} and [expiration]{.title-ref}
+transformations expect a value given as a number of days. Use a
+floating point value to match time periods shorter than a day.</p>
+<p>Examples:</p>
+<p>``` {.yaml}</p>
+<h1 id="get-the-size-of-a-group">Get the size of a group</h1>
+<ul>
+<li>type: value
+  key: SecurityGroups[].GroupId
+  value_type: size
+  value: 2</li>
+</ul>
+<h1 id="membership-example-using-swap">Membership example using swap</h1>
+<ul>
+<li>type: value
+  key: SecurityGroups[].GroupId
+  value_type: swap
+  op: in
+  value: sg-49b87f44</li>
+</ul>
+<h1 id="convert-to-integer-before-comparison">Convert to integer before comparison</h1>
+<ul>
+<li>type: value
+  key: tag:Count
+  op: greater-than
+  value_type: integer
+  value: 0</li>
+</ul>
+<h1 id="apply-only-to-rds-instances-created-after-the-given-date">Apply only to rds instances created after the given date</h1>
+<ul>
+<li>type: value
+  key: InstanceCreateTime
+  op: greater-than
+  value_type: date
+  value: "2019/05/01"</li>
+</ul>
+<h1 id="find-instances-launched-within-the-last-31-days">Find instances launched within the last 31 days</h1>
+<ul>
+<li>type: value
+  key: LaunchTime
+  op: less-than
+  value_type: age
+  value: 32</li>
+</ul>
+<h1 id="find-instances-launched-within-the-past-12-hours">Find instances launched within the past 12 hours</h1>
+<ul>
+<li>type: value
+  key: LaunchTime
+  op: less-than
+  value_type: age
+  value: 0.5</li>
+</ul>
+<h1 id="use-resource_count-to-filter-resources-based-on-the-number-that-matched">Use <code>resource_count</code> to filter resources based on the number that matched</h1>
+<h1 id="note-that-no-key-is-used-for-this-value_type-since-it-is-matching-on">Note that no <code>key</code> is used for this value_type since it is matching on</h1>
+<h1 id="the-size-of-the-list-of-resources-and-not-a-specific-field">the size of the list of resources and not a specific field.</h1>
+<ul>
+<li>type: value
+  value_type: resource_count
+  op: lt
+  value: 2</li>
+</ul>
+<h1 id="this-policy-will-use-intersect-op-to-compare-rds-instances-subnet-group-list">This policy will use <code>intersect</code> op to compare rds instances subnet group list</h1>
+<h1 id="against-a-user-provided-list-of-public-subnets-from-a-s3-txt-file">against a user provided list of public subnets from a s3 txt file.</h1>
+<ul>
+<li>name: find-rds-on-public-subnets-using-s3-list
+  comment:  |
+     The txt file needs to be in utf-8 no BOM format and contain one
+     subnet per line in the file no quotes around the subnets either.
+  resource: aws.rds
+  filters:<ul>
+<li>type: value
+    key: "DBSubnetGroup.Subnets[].SubnetIdentifier"
+    op: intersect
+    value_from:
+        url: s3://cloud-custodian-bucket/PublicSubnets.txt
+        format: txt</li>
+</ul>
+</li>
+</ul>
+<h1 id="this-policy-will-compare-rds-instances-subnet-group-list-against-a">This policy will compare rds instances subnet group list against a</h1>
+<h1 id="inline-user-provided-list-of-public-subnets">inline user provided list of public subnets.</h1>
+<ul>
+<li>name: find-rds-on-public-subnets-using-inline-list
+  resource: aws.rds
+  filters:<ul>
+<li>type: value
+    key: "DBSubnetGroup.Subnets[].SubnetIdentifier"
+    op: intersect
+    value:
+        - subnet-2a8374658
+        - subnet-1b8474522
+        - subnet-2d2736444
+```</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Value Regex:</p>
+<p>When using a Value Filter, a <code>value_regex</code> can be specified. This
+will mean that the value used for comparison is the output from
+evaluating a regex on the value found on a resource using
+[key]{.title-ref}.</p>
+<p>The filter expects that there will be exactly one capturing group,
+however non-capturing groups can be specified as well, e.g.
+<code>(?:newkey|oldkey)</code>.</p>
+<p>Note that if the value regex does not find a match, it will return a
+<code>None</code> value.</p>
+<p>In this example there is an <code>expiration</code> comparison, which needs a
+datetime, however the tag containing this information also has other
+data in it. By setting the <code>value_regex</code> to capture just the
+datetime part of the tag, the filter can be evaluated as normal.</p>
+<p>``` {.yaml}</p>
+<h1 id="find-expiry-from-tag-contents">Find expiry from tag contents</h1>
+<ul>
+<li>type: value
+  key: "tag:metadata"
+  value_type: expiration
+  value_regex: ".<em>delete_after=([0-9]{4}-[0-9]{2}-[0-9]{2}).</em>"
+  op: less-than
+  value: 0
+```</li>
+</ul>
+</li>
+<li>
+<p>Value From:</p>
+<p><code>value_from</code> allows the use of external values in the Value Filter</p>
+<p>::: {.autodoconly}
+c7n.resolver.ValuesFrom
+:::</p>
+</li>
+</ul>
+<h2 id="event-filter">Event Filter</h2>
+<p>Filter against a CloudWatch event JSON associated to a resource type.
+The list of possible keys are now from the cloudtrail event and not the
+describe resource call as is the case in the ValueFilter</p>
+<blockquote>
+<p><code>{.yaml}
+- name: no-ec2-public-ips
+  resource: aws.ec2
+  mode:
+    type: cloudtrail
+    events:
+        - RunInstances
+  filters:
+    - type: event                                                                           ─┐ The key is a JMESPath Query of
+      key: "detail.requestParameters.networkInterfaceSet.items[].associatePublicIpAddress"   ├▶the event JSON from CloudWatch
+      value: true                                                                           ─┘
+  actions:
+    - type: terminate
+      force: true</code></p>
+</blockquote>
+<h2 id="reduce-filter">Reduce Filter</h2>
+<p>The <code>reduce</code> filter lets you group, sort, and limit the number of
+resources to act on. Maybe you want to delete AMIs, but want to do it in
+small batches where you act on the oldest AMIs first. Or maybe you want
+to do some chaos engineering and randomly select ec2 instances part of
+ASGs, but want to make sure no more than one instance per ASG is
+affected. This filter lets you do that.</p>
+<p>This works using this process:</p>
+<blockquote>
+<ol>
+<li>Group resources</li>
+<li>Sort each group of resources</li>
+<li>Selecting a number of resources in each group</li>
+<li>Combine the resulting resources</li>
+</ol>
+</blockquote>
+<h3 id="grouping-resources">Grouping resources</h3>
+<p>Resources are grouped based on the value extracted as defined by the
+<code>group-by</code> attribute. All resources not able to extract a value are
+placed in a group by themselves. This is also the case when <code>group-by</code>
+is not specified.</p>
+<h3 id="sorting-resources">Sorting resources</h3>
+<p>Sorting of individual resources within a group is controlled by a
+combination of the <code>sort-by</code> and <code>order</code> attributes. <code>sort-by</code>
+determines which value to use to sort and <code>order</code> controls how they are
+sorted. For any resources with a null value, those are by default sorted
+last. You can optionally sort those first with the <code>null-order</code>
+attribute.</p>
+<p>Note: if neither <code>sort-by</code> or <code>order</code> are specified, no sorting is done.</p>
+<h3 id="selecting-resources">Selecting resources</h3>
+<p>Once groups have been sorted, we can then apply rules to select a
+specific number of resources in each group. We first <code>discard</code> some
+resources and then <code>limit</code> the remaining set to a maximum count.</p>
+<p>When the <code>discard</code> or <code>discard-percent</code> attributes are specified, we
+take the ordered resources in each group and discard the first
+<code>discard-percent</code> of them or <code>discard</code> absolute count, whichever is
+larger.</p>
+<p>After discarding resources, we then limit the remaining set.
+<code>limit-percent</code> is applied first to reduce the number of resources to
+this percentage of the original. <code>limit</code> is then applied to allow for an
+absolute count. Resources are kept from the beginning of the list.</p>
+<p>To explain this with an example, suppose you have 50 resources in a
+group with all of these set:</p>
+<blockquote>
+<p><code>{.yaml}
+discard: 5
+discard-percent: 20
+limit: 10
+limit-percent: 30</code></p>
+</blockquote>
+<p>This would first discard the first 10 resources because 20 percent of 50
+is 10, which is greater than 5. You now have 40 resources left in the
+group and the limit settings are applied. 30% of 40 is 12, but <code>limit</code>
+is set to 10, which is lower, so the first 10 of the remaining are kept.
+If they were numbered #1-50, you\'d have discarded 1-10, kept 11-20,
+and dropped the remaining 21-50.</p>
+<p>If you had the following settings:</p>
+<blockquote>
+<p><code>{.yaml}
+discard-percent: 25
+limit-percent: 50</code></p>
+</blockquote>
+<p>We\'d discard the first 25% of 50 (12), then of the remaining 38
+resources, we\'d keep 50% of those (19). You\'d end up with resources
+13-31.</p>
+<p>Now, some of these could eliminate all resources from a group. If you
+have 20 resources in one group and 5 in another and specify
+<code>limit-percent = 10</code>, you\'ll get 2 resources from the first group and 0
+resources from the second.</p>
+<h3 id="combining-resource-groups">Combining resource groups</h3>
+<p>Once the groups have been modified, we now need to combine them back to
+one set of resources. Since the groups are determined by a JMESPath
+expression, we sort the groups first based on the <code>order</code> attribute the
+same way we sort within a group. After the groups are sorted, it\'s a
+simple concatenation of resources.</p>
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li>
+<p><code>group-by</code>, <code>sort-by</code></p>
+<p>These are both defined the same way...</p>
+<p>Note: For simplicity, you can specify these as just a single string
+which is treated as the <code>key</code>.</p>
+<ul>
+<li><code>key</code> - The JMESPath expression to extract a value</li>
+<li><code>value_regex</code> - A regular expression with a single capture group
+    that extracts a portion of the result of the <code>key</code> expression.</li>
+<li><code>value_type</code> - parse the value as one of the following:<ul>
+<li><code>string</code> (default)</li>
+<li><code>number</code></li>
+<li><code>date</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>order</code> controls how to sorting is done</p>
+<ul>
+<li><code>asc</code> (default) - sort in ascending order based on <code>key</code></li>
+<li><code>desc</code> - sort in descending order based on <code>key</code></li>
+<li><code>reverse</code> - reverse the order of resources (ignores <code>key</code>)</li>
+<li><code>randomize</code> - randomize the order of resources (ignores <code>key</code>)</li>
+</ul>
+</li>
+<li>
+<p><code>null-order</code> - when sorting, where to put resources that have a null
+    value</p>
+<ul>
+<li><code>last</code> (default) - at the end of the list</li>
+<li><code>first</code> - at the start of the list</li>
+</ul>
+</li>
+<li>
+<p><code>discard</code> - discard the first N resources within each group</p>
+</li>
+<li>
+<p><code>discard-percent</code> - discard the first N percentage of resources
+    within each group</p>
+</li>
+<li>
+<p><code>limit</code> - select the first N resources within each group (after
+    discards)</p>
+</li>
+<li>
+<p><code>limit-percent</code> - select the first N percentage of resources within
+    each group (after discards)</p>
+</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<p>This example will select the longest running instance from each ASG,
+then randomly choose 10% of those, making sure to not affect more than
+15 instances total, then terminate them.</p>
+<blockquote>
+<p><code>{.yaml}
+- name: chaos-engineering
+  resource: aws.ec2
+  filters:
+    - "State.Name": "running"
+    - "tag:aws:autoscaling:groupName": present
+    - type: reduce
+      group-by: "tag:aws:autoscaling:groupName"
+      sort-by: "LaunchTime"
+      order: asc
+      limit: 1
+    - type: reduce
+      order: randomize
+      limit: 15
+      limit-percent: 10
+  actions:
+    - terminate</code></p>
+</blockquote>
+<p>This example will delete old AMIs, but make sure to only do the top 10
+based on age.</p>
+<blockquote>
+<p><code>{.yaml}
+- name: limited-ami-expiration
+  resource: aws.ami
+  filters:
+    - type: image-age
+      days: 180
+      op: ge
+    - type: reduce
+      sort-by: "CreationDate"
+      order: asc
+      limit: 10
+  actions:
+    - deregister</code></p>
+</blockquote>
+<p>This example simply sorts the resources by when they are marked for
+expiration. We use a <code>date</code> type because the tags might be in different
+date formats or are not text-sortable.</p>
+<blockquote>
+<p><code>{.yaml}
+- name: ami-expiration-by-expire-date
+  resource: aws.ami
+  filters:
+    - type: value
+      key: "tag:expire-after"
+      value_type: age
+      op: gt
+      value: 0
+    - type: reduce
+      sort-by:
+        key: "tag:expire-after"
+        value_type: date
+      order: asc
+      limit: 10
+  actions:
+    - deregister</code></p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../deployment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deployment" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Deployment
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../aws/contribute/" class="md-footer__link md-footer__link--next" aria-label="Next: Contribute" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Contribute
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>
