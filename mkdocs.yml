@@ -1,3 +1,31 @@
 site_name: Cloud Custodian Documentation
 theme:
   name: material
+  features:
+    - navigation.tabs
+    - tabs
+    - instant
+plugins:
+  - minify:
+      minify_html: true
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      type: iso_datetime
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tabbed
+  - pymdownx.details
+
