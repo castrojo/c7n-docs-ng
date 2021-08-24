@@ -2,6 +2,7 @@ site_name: Cloud Custodian Documentation
 copyright: "Copyright &copy; 2021 The Cloud Custodian Authors"
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.instant
     - navigation.tabs

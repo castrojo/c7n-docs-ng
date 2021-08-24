@@ -1,22 +1,24 @@
-Generic Filters {#filters}
-===============
+# Generic Filters
+
 
 The following filters can be applied to all policies for all resources.
 See the provider specific resource reference for additional information.
 
-Value Filter
-------------
+## Value Filter
+
 
 Cloud Custodian provides for a flexible query language on any resource
 by allowing for rich queries on JSON objects via JMESPath, and allows
 for mixing and combining those with boolean conditional operators that
-are nest-able. (Tutorial here on
-[JMESPath](http://jmespath.org/tutorial.html) syntax)
+are nest-able. 
+
+Check out this [JMESPath tutorial](http://jmespath.org/tutorial.html) for the
+syntax.
 
 The base value filter enables the use of jmespath with data returned
 from a describe call.
 
-``` {.yaml}
+```
 filters:
      - type: value
        key: "State[0]"    ─▶ The value from the describe call
@@ -31,7 +33,7 @@ There are several ways to get a list of possible keys for each resource.
     > fields. Then run `custodian run -s OUTPUT_DIR`. The valid key
     > fields can be found in the output directory in resources.json
     >
-    > ``` {.yaml}
+    > ```
     > policies:
     >   - name: my-first-policy
     >     resource: aws.ec2
@@ -67,7 +69,7 @@ There are several ways to get a list of possible keys for each resource.
         -   `less-than` or `lt`
         -   `lte` or `le`
 
-    ``` {.yaml}
+    ```
     filters:
        - type: value
          key: CpuOptions.CoreCount      ─▶ The value from the describe call
@@ -85,7 +87,7 @@ There are several ways to get a list of possible keys for each resource.
         -   `empty`
         -   `contains`
 
-    ``` {.yaml}
+    ```
     filters:
        - type: value
          key: CpuOptions.CoreCount      ─▶ The value from the describe call
@@ -100,7 +102,7 @@ There are several ways to get a list of possible keys for each resource.
         -   `and` or `And`
         -   `not`
 
-    ``` {.yaml}
+    ```
     filters:
        - or:                              ─▶ Logical Operator
          - type: value
@@ -126,7 +128,7 @@ There are several ways to get a list of possible keys for each resource.
         -   `not-in` or `ni`
         -   `intersect` - Provides comparison between 2 lists
 
-    ``` {.yaml}
+    ```
     filters:
        - type: value
          key: ImageId                   ─▶ The value from the describe call
@@ -134,7 +136,7 @@ There are several ways to get a list of possible keys for each resource.
          value: [ID-123, ID-321]        ─▶ List of Values to be compared against
     ```
 
-    ``` {.yaml}
+    ```
     filters:
        - type: value
          key: ImageId.List              ─▶ The value from the describe call
@@ -153,7 +155,7 @@ There are several ways to get a list of possible keys for each resource.
         -   `regex-case` - Provides case sensitive Regex matching
             support (1)
 
-    ``` {.yaml}
+    ```
     filters:
        - type: value
          key: FunctionName                ─▶ The value from the describe call, or resources.json
@@ -172,11 +174,9 @@ There are several ways to get a list of possible keys for each resource.
     ```
 
     1.  These operators are implemented using `re.match`. If a filter
-        isn\'t working as expected take a look at the
-        [re]{.title-ref}\_\_ documentation.
-
-    \_\_ <https://docs.python.org/3/library/re.html#search-vs-match>
-
+        isn't working as expected take a look at the
+        [regular expression documentation](https://docs.python.org/3/library/re.html#search-vs-match).
+    
 -   Transformations: Transformations on the value can be done using the
     `value_type` keyword. The following value types are supported:
 
@@ -193,13 +193,13 @@ There are several ways to get a list of possible keys for each resource.
     -   `swap` - swap the value and the evaluated key
     -   `date` - parse the filter\'s value as a date.
 
-    Note that the [age]{.title-ref} and [expiration]{.title-ref}
-    transformations expect a value given as a number of days. Use a
-    floating point value to match time periods shorter than a day.
+    Note that the [age]{.title-ref} and [expiration]{.title-ref} transformations
+    expect a value given as a number of days.
+    Use a floating point value to match time periods shorter than a day.
 
     Examples:
 
-    ``` {.yaml}
+    ```
     # Get the size of a group
     - type: value
       key: SecurityGroups[].GroupId
@@ -297,7 +297,7 @@ There are several ways to get a list of possible keys for each resource.
     data in it. By setting the `value_regex` to capture just the
     datetime part of the tag, the filter can be evaluated as normal.
 
-    ``` {.yaml}
+    ```
     # Find expiry from tag contents
     - type: value
       key: "tag:metadata"
@@ -315,14 +315,13 @@ There are several ways to get a list of possible keys for each resource.
     c7n.resolver.ValuesFrom
     :::
 
-Event Filter
-------------
+## Event Filter
 
 Filter against a CloudWatch event JSON associated to a resource type.
 The list of possible keys are now from the cloudtrail event and not the
 describe resource call as is the case in the ValueFilter
 
-> ``` {.yaml}
+> ```
 > - name: no-ec2-public-ips
 >   resource: aws.ec2
 >   mode:
@@ -338,8 +337,7 @@ describe resource call as is the case in the ValueFilter
 >       force: true
 > ```
 
-Reduce Filter
--------------
+## Reduce Filter
 
 The `reduce` filter lets you group, sort, and limit the number of
 resources to act on. Maybe you want to delete AMIs, but want to do it in
@@ -392,43 +390,43 @@ absolute count. Resources are kept from the beginning of the list.
 To explain this with an example, suppose you have 50 resources in a
 group with all of these set:
 
-> ``` {.yaml}
+> ```
 > discard: 5
 > discard-percent: 20
 > limit: 10
 > limit-percent: 30
 > ```
 
-This would first discard the first 10 resources because 20 percent of 50
-is 10, which is greater than 5. You now have 40 resources left in the
-group and the limit settings are applied. 30% of 40 is 12, but `limit`
-is set to 10, which is lower, so the first 10 of the remaining are kept.
-If they were numbered \#1-50, you\'d have discarded 1-10, kept 11-20,
-and dropped the remaining 21-50.
+This would first discard the first 10 resources because 20 percent of 50 is 10,
+which is greater than 5. You now have 40 resources left in the group and the
+limit settings are applied. 30% of 40 is 12, but `limit` is set to 10, which is
+lower, so the first 10 of the remaining are kept. If they were numbered \#1-50,
+you\'d have discarded 1-10, kept 11-20, and dropped the remaining 21-50.
 
 If you had the following settings:
 
-> ``` {.yaml}
+> ```
 > discard-percent: 25
 > limit-percent: 50
 > ```
 
-We\'d discard the first 25% of 50 (12), then of the remaining 38
-resources, we\'d keep 50% of those (19). You\'d end up with resources
-13-31.
+We'd discard the first 25% of 50 (12), then of the remaining 38
+resources, we'd keep 50% of those (19). 
+You'd end up with resources 13-31.
 
-Now, some of these could eliminate all resources from a group. If you
-have 20 resources in one group and 5 in another and specify
+Now, some of these could eliminate all resources from a group. 
+If you have 20 resources in one group and 5 in another and specify
 `limit-percent = 10`, you\'ll get 2 resources from the first group and 0
 resources from the second.
 
 ### Combining resource groups
 
-Once the groups have been modified, we now need to combine them back to
-one set of resources. Since the groups are determined by a JMESPath
-expression, we sort the groups first based on the `order` attribute the
-same way we sort within a group. After the groups are sorted, it\'s a
-simple concatenation of resources.
+Once the groups have been modified, we now need to combine them back to one set
+of resources. 
+Since the groups are determined by a JMESPath expression, we sort
+the groups first based on the `order` attribute the same way we sort within a
+group.
+After the groups are sorted, it's a concatenation of resources.
 
 ### Attributes
 
