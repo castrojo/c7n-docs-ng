@@ -1,0 +1,8 @@
+[data-md-color-primary=yellow] {
+  --md-primary-fg-color: #f4c91d;
+  --md-typeset-a-color: #4051b5;
+}
+
+[data-md-color-scheme=slate] {
+  --md-typeset-a-color: #ef5552;
+}
