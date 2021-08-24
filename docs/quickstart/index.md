@@ -1,5 +1,4 @@
-Getting Started {#quickstart}
-===============
+# Getting Started 
 
 See also the readme in the GitHub repository.
 
@@ -10,8 +9,8 @@ See also the readme in the GitHub repository.
 -   `tab-completion`{.interpreted-text role="ref"}
 -   `community`{.interpreted-text role="ref"}
 
-Install Cloud Custodian {#install-cc}
------------------------
+## Install Cloud Custodian
+
 
 These instructions will install Cloud Custodian. Cloud Custodian is a
 Python application that supports Python 3 on Linux, MacOS and Windows.
@@ -21,56 +20,56 @@ NOTE: Ensure you install the correct follow-on package depending on the
 cloud you are deploying to, otherwise you won\'t have the right modules
 for that specific cloud.
 
-### Linux and Mac OS
+=== "Linux and OSX"
 
-To install Cloud Custodian :
+    To install Cloud Custodian :
 
-    python3 -m venv custodian
-    source custodian/bin/activate
-    pip install c7n       # This includes AWS support
+        python3 -m venv custodian
+        source custodian/bin/activate
+        pip install c7n       # This includes AWS support
 
-To install Cloud Custodian for Azure, you will also need to run:
+    To install Cloud Custodian for Azure, you will also need to run:
 
-    pip install c7n_azure # Install Azure package
+        pip install c7n_azure # Install Azure package
 
-To install Cloud Custodian for GCP, you will also need to run:
+    To install Cloud Custodian for GCP, you will also need to run:
 
-    pip install c7n_gcp   # Install GCP Package
+        pip install c7n_gcp   # Install GCP Package
 
-### Windows (CMD/PowerShell)
 
-To install Cloud Custodian run:
+=== "Windows" 
+    
+    To install Cloud Custodian run:
 
-    python3 -m venv custodian
-    ./custodian/bin/activate
-    pip install c7n    # This includes AWS support
+        python3 -m venv custodian
+        ./custodian/bin/activate
+        pip install c7n    # This includes AWS support
 
-To install Cloud Custodian for Azure, you will also need to run:
+    To install Cloud Custodian for Azure, you will also need to run:
 
-    pip install c7n_azure
+        pip install c7n_azure
 
-To install Cloud Custodian for GCP, you will also need to run:
+    To install Cloud Custodian for GCP, you will also need to run:
 
-    pip install c7n_gcp
+        pip install c7n_gcp
 
-### Docker
+=== "Docker"
 
-To install via docker, run:
+    To install via docker, run:
 
-    docker pull cloudcustodian/c7n
+        docker pull cloudcustodian/c7n
 
-You\'ll need to export cloud provider credentials to the container when
-executing. One example, if you\'re using environment variables for
-provider credentials:
+    You'll need to export cloud provider credentials to the container when
+    executing. One example, if you\'re using environment variables for
+    provider credentials:
 
-    docker run -it \
-      -v $(pwd)/output:/home/custodian/output \
-      -v $(pwd)/policy.yml:/home/custodian/policy.yml \
-      --env-file <(env | grep "^AWS\|^AZURE\|^GOOGLE") \
-         cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
+        docker run -it \
+          -v $(pwd)/output:/home/custodian/output \
+          -v $(pwd)/policy.yml:/home/custodian/policy.yml \
+          --env-file <(env | grep "^AWS\|^AZURE\|^GOOGLE") \
+             cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
 
-Explore Cloud Custodian {#explore-cc}
------------------------
+## Explore Cloud Custodian
 
 Run `custodian -h` to see a list of available commands.
 
@@ -133,8 +132,7 @@ different supported modes in Cloud Custodian:
 
     custodian schema mode
 
-Cloud Provider Specific Help {#cloud-providers}
-----------------------------
+## Cloud Provider Specific Help
 
 For specific setup isntructions for AWS, Azure, and GCP, visit the
 relevant getting started page.
@@ -143,24 +141,23 @@ relevant getting started page.
 -   `Azure <azure_gettingstarted>`{.interpreted-text role="ref"}
 -   `GCP <gcp_gettingstarted>`{.interpreted-text role="ref"}
 
-### Troubleshooting & Tinkering
+## Troubleshooting & Tinkering
 
 The policy is validated automatically when you run it, but you can also
 validate it separately:
 
-``` {.bash}
-custodian validate custodian.yml
-```
+
+    custodian validate custodian.yml
+
 
 You can also check which resources are identified by the policy, without
 running any actions on the resources:
 
-``` {.bash}
-custodian run --dryrun -s . custodian.yml
-```
 
-Monitor resources {#monitor-cc}
------------------
+    custodian run --dryrun -s . custodian.yml
+
+
+## Monitor resources
 
 Additional commands let you monitor your services in detail.
 
@@ -177,8 +174,7 @@ specific pages:
 
 For details, see `usage`{.interpreted-text role="ref"}.
 
-Editor Integration
-------------------
+## Editor Integration
 
 If your preferred editor supports language servers, you can configure it
 to provide completion and validation while authoring policies.
@@ -219,23 +215,21 @@ Also, if you\'re seeing errors like
 `'Request textDocument/hover failed with message: Cannot read property '$ref' of null'`
 try re-creating your schema.json file.
 
-Tab Completion
---------------
+## Tab Completion
 
 To enable command-line tab completion for [custodian]{.title-ref} on
 bash do the following one-time steps:
 
 Run:
 
-``` {.bash}
-activate-global-python-argcomplete
-```
+
+    activate-global-python-argcomplete
+
 
 Now launch a new shell (or refresh your bash environment by sourcing the
 appropriate file).
 
-Community Resources
--------------------
+## Community Resources
 
 We have a regular community meeting that is open to all users and
 developers of every skill level. Joining the [mailing list
@@ -248,7 +242,7 @@ technical information on joining the meeting.
 > -   [Community Meeting Notes
 >     Archive](https://github.com/cloud-custodian/community/discussions)
 
-### Troubleshooting
+## Troubleshooting
 
 If you get an error about \"complete -D\" not being supported, you need
 to update bash. See the \"Base Version Compatability\" note [in the
