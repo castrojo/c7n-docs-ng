@@ -27,34 +27,3 @@ following:
 
 Navigate below to your cloud provider and get started with Cloud
 Custodian!
-
-::: {.toctree maxdepth="2" caption="Introduction"}
-quickstart/index filters actions quickstart/advanced
-quickstart/policyStructure deployment
-:::
-
-::: {.toctree maxdepth="1" caption="AWS"}
-aws/gettingstarted aws/examples/index aws/usage aws/lambda
-aws/topics/index aws/contribute aws/resources/index
-:::
-
-::: {.toctree maxdepth="2" caption="Azure"}
-azure/gettingstarted azure/configuration/index azure/examples/index
-azure/advanced/index azure/resources/index
-:::
-
-::: {.toctree maxdepth="1" caption="GCP"}
-gcp/gettingstarted gcp/examples/index gcp/policy/index gcp/contribute
-gcp/resources/index
-:::
-
-::: {.toctree maxdepth="2" caption="Tools"}
-tools/c7n-org tools/cask tools/c7n-mailer tools/c7n-logexporter
-tools/c7n-trailcreator tools/c7n-policystream tools/omnissm
-tools/c7n-guardian tools/c7n-salactus
-:::
-
-::: {.toctree maxdepth="2" caption="Contributing"}
-contribute developer/index.rst developer/installing.rst
-developer/tests.rst developer/documentation.rst developer/packaging.rst
-:::
