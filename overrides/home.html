@@ -1,4 +1,14 @@
-{% extends "main.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  @media only screen and (min-width: 76.25em) {
+    .md-sidebar--primary {
+      display: none;
+    }
+  }
+</style>
+
 <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}" />
 
 <div class="md-container">
@@ -163,23 +173,3 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-  {{ super() }}
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const logos = document.getElementById("usedby").getElementsByTagName("div");
-        for (let i = 0; i < logos.length - 1; i++) {
-            // Technically there's a chance two elements end up with the same
-            // random order in which case the result won't be truly random (it'll be based
-            // on the original document order). This really doesn't matter.
-            logos[i].style.order = Math.floor(Math.random() * 99);
-        }
-        logos[logos.length - 1].style.order = 100;
-    })
-  </script>
-{% endblock %}
-
-<!-- Application footer -->
-{% block footer %}
-  {% include "partials/footer.html" %}
-{% endblock %}
