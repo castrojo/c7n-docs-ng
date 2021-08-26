@@ -19,13 +19,13 @@
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div>
-          <h1>Enterprise-grade Serverless on your own terms.</h1>
-          <h2>Kubernetes-based platform to deploy and manage modern serverless workloads.</h2>
+          <h1>Open Source Cloud Security, Governance, and Management</h1>
+          <h2>Apply filters and actions to all your clouds resources</h2>
           <p style="display: block">
-            <a href="{{ 'getting-started/' | url }}" class="md-button md-button--primary">
+            <a href="{{ 'https://cloudcustodian.io/docs/generated/aws/c7n.html' | url }}" class="md-button md-button--primary">
               Developer? Get Started Here!
             </a>
-            <a href="{{ 'admin/install/' | url }}" class="md-button"> Cluster Administrator? Get Started Here!</a>
+            <a href="{{ '/quickstart/#install-cloud-custodian/' | url }}" class="md-button"> Cloud Administrator? Get Started Here!</a>
           </p>
         </div>
       </div>
@@ -39,28 +39,59 @@
         <li class="task-list-item">
           <input type="checkbox" checked disabled />
           <span class="task-list-indicator"></span>
-          <b>Stand up scalable, secure, stateless services in seconds.</b>
+        Comprehensive support for public cloud services and resources with a <b>rich library of actions and filters</b> to build policies with
         </li>
         <li class="task-list-item">
-          <input type="checkbox" checked disabled /><span class="task-list-indicator"></span><b>Focused API</b> with
-          higher level abstractions for common app use-cases.
+          <input type="checkbox" checked disabled /><span
+          class="task-list-indicator"></span>
+        Arbitrary filtering on resources with nested boolean conditions.</b>
         </li>
         <li class="task-list-item">
-          <input type="checkbox" checked disabled /><span class="task-list-indicator"></span
-          ><b>Pluggable components</b> let you bring your own logging and monitoring, networking, and service mesh.
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Automatically provisions serverless functions and event sources (AWS CloudWatchEvents, AWS Config Rules, Azure EventGrid, GCP AuditLog & Pub/Sub, etc)
         </li>
         <li class="task-list-item">
-          <input type="checkbox" checked disabled /><span class="task-list-indicator"></span>Run Knative anywhere
-          Kubernetes runs, <b>never worry about vendor lock-in.</b>
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Robust dry-run features, experiment with <b>confidence</b>
         </li>
         <li class="task-list-item">
-          <input type="checkbox" checked disabled /><span class="task-list-indicator"></span
-          ><b>Seamless developer experience</b>, supports GitOps, DockerOps, ManualOps, etc..
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Policy-based outputs sent directly to cloud provider <b>native metrics</b>
         </li>
         <li class="task-list-item">
-          <input type="checkbox" checked disabled /><span class="task-list-indicator"></span
-          ><b>Supports many common tools and frameworks</b> such as Django, Ruby on Rails, Spring, and many more.
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Policy-based structured outputs of matched resources into cloud native <b>object storage</b>
         </li>
+        <li class="task-list-item">
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Intelligent cache usage to minimize api calls.
+        </li>
+        <li class="task-list-item">
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        Supports multi-account, subscription, project usage.
+        </li>
+        <li class="task-list-item">
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        <b>Battle-tested since 2015</b> - in production at some of the largest
+        deployments on cloud
+        </li>
+        <li class="task-list-item">
+          <input type="checkbox" checked disabled />
+          <span class="task-list-indicator"></span>
+        <b>Robust and open community</b> - Friendly and professional community
+        dedicated to helping move Code as Governance forward. Part of the CNCF Ecosystem of tools
+        (CNCF Sandbox)
+        </li>
+
+      
+      
       </ul>
     </div>
   </section>
@@ -74,12 +105,15 @@
         draggable="false"
       />
       <div>
-        <h2>Make your developers more productive</h2>
+        <h2>The Path to a Well Managed Cloud</h2>
         <p>
-          Knative components build on top of Kubernetes,
-          <b>abstracting away the complex details and enabling developers to focus on what matters</b>. Built by
-          codifying the best practices shared by successful real-world implementations, Knative solves the "boring but
-          difficult" parts of deploying and managing cloud native services so you don't have to.
+          Cloud Custodian enables users to be well managed in the cloud. 
+          The simple YAML DSL allows you to easily define rules to enable a
+          well-managed cloud infrastructure, that's both secure and cost
+          optimized. 
+          It consolidates many of the ad-hoc scripts organizations have into a lightweight and flexible tool, with unified metrics and reporting.
+
+          Custodian supports managing AWS, Azure, and GCP public cloud environments.
         </p>
       </div>
     </div>
@@ -92,7 +126,7 @@
       </div>
       <div id="usedby">
         <div class="logo">
-          <img src="images/corporate-logos/Google.svg" alt="" draggable="false" />
+          <img src="https://commons.wikimedia.org/wiki/File:Capital_One_logo.svg" alt="" draggable="false" />
         </div>
         <div class="logo">
           <img src="images/corporate-logos/vmware.svg" alt="" draggable="false" />
@@ -111,34 +145,6 @@
     </div>
   </section>
 
-  <section class="components-container">
-    <div class="md-grid md-typeset">
-      <div>
-        <h2>Knative Components</h2>
-      </div>
-      <div style="display: flex; gap: 4em;" class="component-flex">
-        <div>
-          <div>
-            <h4><a style="color: white" href="{{ 'serving' | url }}">Serving ›</a></h4>
-          </div>
-          <p>
-            Run serverless containers on Kubernetes with ease, Knative takes care of the details of networking,
-            autoscaling (even to zero), and revision tracking. You just have to focus on your core logic.
-          </p>
-        </div>
-        <div>
-          <div>
-            <h4><a style="color: white" href="{{ 'eventing' | url }}">Eventing ›</a></h4>
-          </div>
-          <p>
-            Universal subscription, delivery, and management of events. Build modern apps by attaching compute to a data
-            stream with declarative event connectivity and developer-friendly object model.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="whats-next-container">
     <div class="md-grid md-typeset">
       <h2>What's Next?</h2>
@@ -147,8 +153,8 @@
           <div class="twemoji">
             {% include ".icons/fontawesome/brands/slack.svg" %}
           </div>
-          <h4>Talk to us on Slack</h4>
-          <a href="https://slack.knative.dev" title="Slack Link" class="md-button">Talk</a>
+          <h4>Talk to us on Gitter</h4>
+          <a href="https://gitter.im/capitalone/cloud-custodian" title="Slack Link" class="md-button">Talk</a>
           <p>Interested in learning more, speaking to other contributors, or finding answers?</p>
         </div>
         <div class="pane">
@@ -156,7 +162,7 @@
             {% include ".icons/fontawesome/brands/github.svg" %}
           </div>
           <h4>Contributions Welcome</h4>
-          <a href="./help/contributor/" title="Contributing Link" class="md-button">Contribute</a>
+          <a href="https://github.com/cloud-custodian/cloud-custodian" title="Contributing Link" class="md-button">Contribute</a>
           <p>Want to join the fun on Github? New users are always welcome!</p>
         </div>
         <div class="pane">
@@ -164,9 +170,10 @@
             {% include ".icons/fontawesome/brands/twitter.svg" %}
           </div>
           <h4>Follow us on Twitter</h4>
-          <a href="https://twitter.com/KnativeProject" title="Twitter Link" class="md-button">Follow</a>
-          <p>For features announcements, interesting Knative news, and other great things.</p>
-        </div>
+          <a href="https://twitter.com/kapilvt" title="Twitter Link" class="md-button">Follow</a>
+          <p>For features announcements, interesting news, and other great
+          things follow Kapil directly until we sort ourselves!</p>
+          </div>
       </div>
     </div>
   </section>
