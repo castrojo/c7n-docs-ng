@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-mkdocs = "^1.2.2"
+mkdocs = "^1.2.3"
 mkdocs-material = "^7.2.4"
 mkdocs-redirects = "^1.0.3"
 mkdocs-git-revision-date-localized-plugin = "^0.9.2"
